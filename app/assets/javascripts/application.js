@@ -17,9 +17,19 @@
 //= require semantic-ui
 //= require_tree .
 
+
+scroll_bottom = function() {
+  if ($('#chat').length > 0) {
+    $('#chat').scrollTop($('#chat')[0].scrollHeight);
+  }
+}
+
+
 $(document).on('turbolinks:load', function() {
   $('.ui.dropdown').dropdown();
   $('.message .close').on('click', function() {
     $(this).closest('.message').transition('fade');
   });
+
+  scroll_bottom();
 })
